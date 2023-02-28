@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_07o2uor" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.1.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <inputData id="InputData_1cye7bp" name="API_Name" />
+  <decision id="Decision_03irohq" name="API Locator">
+    <informationRequirement id="InformationRequirement_04x67z8">
+      <requiredInput href="#InputData_1cye7bp" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0sx872b" hitPolicy="ANY">
+      <input id="InputClause_1d29lt7" label="API-Name">
+        <inputExpression id="LiteralExpression_0jka9i7" typeRef="long">
+          <text>API_Name</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0s5adu4" label="API URL" name="API_URL" typeRef="string" biodi:width="426" />
+      <rule id="DecisionRule_06pvpyz">
+        <inputEntry id="UnaryTests_1s8wtir">
+          <text>100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hfmr77">
+          <text>"http://localhost:8080/engine-rest/history/activity-instance"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10552ow">
+        <inputEntry id="UnaryTests_154jqrh">
+          <text>200</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jfd0c7">
+          <text>"http://localhost:8080/engine-rest/process-definition"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1o7r71s">
+        <inputEntry id="UnaryTests_163gwfz">
+          <text>300</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_144ht4o">
+          <text>"http://localhost:8080/engine-rest/engine"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cqijn0">
+        <inputEntry id="UnaryTests_188j3rn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16qshdk">
+          <text>"Default"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0ev5lf8" dmnElementRef="InputData_1cye7bp">
+        <dc:Bounds height="45" width="125" x="187" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1vudeil" dmnElementRef="Decision_03irohq">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_12dte6q" dmnElementRef="InformationRequirement_04x67z8">
+        <di:waypoint x="250" y="337" />
+        <di:waypoint x="250" y="180" />
+        <di:waypoint x="250" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
